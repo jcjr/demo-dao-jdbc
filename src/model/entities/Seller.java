@@ -57,7 +57,5 @@ public class Seller {
 	public Integer getId() {
 		return id;
 	}
-	
-	
 
 }
