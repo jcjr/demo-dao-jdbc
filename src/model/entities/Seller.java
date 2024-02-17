@@ -61,6 +61,11 @@ public class Seller implements Serializable{
 		this.baseSalary = baseSalary;
 	}
 
+	
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public Integer getId() {
 		return id;
 	}
