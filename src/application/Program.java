@@ -23,12 +23,14 @@ public class Program {
 		System.out.println("\n===== Test 2: Seller findByDeparment =====");
 		Department dep = new Department(3, null);
 		List<Seller> list = sellerDao.findByDepatment(dep);
+		
 		for(Seller sel : list) {
 			System.out.println(sel);
 		}
 		
 		System.out.println("\n===== Test 3: Seller findAll =====");
 		list = sellerDao.findAll();
+		
 		for(Seller sel : list) {
 			System.out.println(sel);
 		}
