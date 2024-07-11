@@ -173,11 +173,14 @@ public class SellerDaoJDBC implements SellerDao {
 		
 		PreparedStatement st = null;
 		ResultSet rs = null;
+		
 		try {
 
 			st = conn.prepareStatement(
-					"SELECT seller.*,department.Name as DepName " + "FROM seller INNER JOIN department "
-							+ "ON seller.DepartmentId = department.Id " + "ORDER BY Name");
+					"SELECT seller.*,department.Name as DepName "
+					+ "FROM seller INNER JOIN department "
+					+ "ON seller.DepartmentId = department.Id " 
+					+ "ORDER BY Name");
 
 			rs = st.executeQuery();
 
@@ -210,15 +213,19 @@ public class SellerDaoJDBC implements SellerDao {
 	}
 
 	@Override
-	public List<Seller> findByDepatment(Department department) {
+	public List<Seller> findByDepartment(Department department) {
 
 		PreparedStatement st = null;
 		ResultSet rs = null;
+		
 		try {
 
 			st = conn.prepareStatement(
-					"SELECT seller.*,department.Name as DepName " + "FROM seller INNER JOIN department "
-							+ "ON seller.DepartmentId = department.Id " + "WHERE DepartmentId = ? " + "ORDER BY Name");
+					"SELECT seller.*,department.Name as DepName "
+					+ "FROM seller INNER JOIN department "
+					+ "ON seller.DepartmentId = department.Id " 
+					+ "WHERE DepartmentId = ? " 
+					+ "ORDER BY Name");
 
 			st.setInt(1, department.getId());
 			rs = st.executeQuery();

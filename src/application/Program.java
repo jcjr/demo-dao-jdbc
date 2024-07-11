@@ -21,8 +21,8 @@ public class Program {
 		System.out.println(seller);
 		
 		System.out.println("\n===== Test 2: Seller findByDeparment =====");
-		Department dep = new Department(3, null);
-		List<Seller> list = sellerDao.findByDepatment(dep);
+		Department dep = new Department(1, null);
+		List<Seller> list = sellerDao.findByDepartment(dep);
 		
 		for(Seller sel : list) {
 			System.out.println(sel);
@@ -35,7 +35,7 @@ public class Program {
 			System.out.println(sel);
 		}
 		
-		System.out.println("\n===== Test 4: Seller insert =====");
+	/*	System.out.println("\n===== Test 4: Seller insert =====");
 		Seller newSeller = new Seller(null, "Matheus", "matheurs@gmail.com", new Date(), 3800.0, dep);
 		sellerDao.insert(newSeller);
 		System.out.println("Inserted!  New id = " + newSeller.getId());
@@ -51,7 +51,7 @@ public class Program {
 		System.out.print("Enter ID for delete test: ");
 		int id = sc.nextInt();
 		sellerDao.deletById(id);
-		System.out.println("Delete completed!");
+		System.out.println("Delete completed!");*/
 		
 		sc.close();
 	}
