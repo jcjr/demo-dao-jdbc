@@ -41,12 +41,13 @@ public class SellerDaoJDBC implements SellerDao {
 			st.setDouble(4, obj.getBaseSalary());
 			st.setInt(5, obj.getDepartment().getId());
 
-			int rowsaffected = st.executeUpdate();
+			//int rowsaffected = st.executeUpdate();
 
-			if (rowsaffected > 0) {
+			if (/*rowsaffected*/st.executeUpdate() > 0) {
 				ResultSet rs = st.getGeneratedKeys();
 				if (rs.next()) {
-					obj.setId(rs.getInt(1));
+					//int id = rs.getInt(1);
+					obj.setId(/*id*/rs.getInt(1));
 				}
 				DB.closeResultSet(rs);
 			} else {
