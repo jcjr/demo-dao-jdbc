@@ -41,12 +41,9 @@ public class SellerDaoJDBC implements SellerDao {
 			st.setDouble(4, obj.getBaseSalary());
 			st.setInt(5, obj.getDepartment().getId());
 
-			//int rowsaffected = st.executeUpdate();
-
-			if (/*rowsaffected*/st.executeUpdate() > 0) {
+			if (st.executeUpdate() > 0) {
 				ResultSet rs = st.getGeneratedKeys();
 				if (rs.next()) {
-					//int id = rs.getInt(1);
 					obj.setId(/*id*/rs.getInt(1));
 				}
 				DB.closeResultSet(rs);
@@ -100,7 +97,10 @@ public class SellerDaoJDBC implements SellerDao {
 
 			st = conn.prepareStatement("DELETE FROM seller WHERE Id = ?");					
 			st.setInt(1, id);
-			st.executeUpdate();
+			
+			if(st.executeUpdate() == 0) {
+				throw new DbException("No find Id in database!");
+			}
 
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
